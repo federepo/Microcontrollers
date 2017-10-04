@@ -1,7 +1,6 @@
 //*****************************
 //Autor:Federico G. D'Angiolo
 //Ejemplo:Blinky LED
-//2017
 //*****************************
 
 #include <xc.h> // Librería XC8
