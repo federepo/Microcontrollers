@@ -17,8 +17,8 @@ Microcontroller: PIC16F630
 #pragma config CPD = OFF        // Data EE Memory Code Protection bit (Data memory code protection off)
 #pragma config CP = OFF         // Flash Program Memory Code Protection bit (Code protection off)
  
-void main ()
-{
+void main (){
+ 
     //*********************
     //Port configuration
     //*********************
