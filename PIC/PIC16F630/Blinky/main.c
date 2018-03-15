@@ -31,12 +31,13 @@ void main ()
     //******************************
      while (1) 
      {
-       //  PORTC = 0b00000000; // Se envía el dato 0X00 a todo el puerto C
-         PORTCbits.RC2 = 0; // Sen envía el dato "0" al bit RC2
-         __delay_ms(60);
-         
        //  PORTC = 0b11111111; // Se envía el dato 0XFF a todo el puerto C
          PORTCbits.RC2 = 1; // Sen envía el dato "1" al bit RC2
          __delay_ms(60);
-     } 
+
+      //  PORTC = 0b00000000; // Se envía el dato 0X00 a todo el puerto C
+         PORTCbits.RC2 = 0; // Sen envía el dato "0" al bit RC2
+         __delay_ms(60);
+         
+            } 
 }
