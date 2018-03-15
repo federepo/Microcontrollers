@@ -19,24 +19,24 @@ Microcontrolador: PIC16F630
  
 void main ()
 {
-    //************************************************
-    //Configuración de puertos como entrada o salida
-    //************************************************
+    //***********************
+    //Port configuration
+    //***********************
     
-    TRISCbits.TRISC2 = 0; // Se configura el bit RC 2 como salida
-    // TRISC = 0b00000000; // Se configura a todos los bits del puerto C, como salidas
+    TRISCbits.TRISC2 = 0; // RC2 bit as output
+    // TRISC = 0b00000000; // It is configured to all the bits of port C, as outputs
      
-    //******************************
-    // Envío de datos a los puertos
-    //******************************
+    //************************
+    // Sending data to ports
+    //************************
      while (1) 
      {
-       //  PORTC = 0b11111111; // Se envía el dato 0XFF a todo el puerto C
-         PORTCbits.RC2 = 1; // Sen envía el dato "1" al bit RC2
+       //  PORTC = 0b11111111; // The 0XFF data is sent to the entire C port
+         PORTCbits.RC2 = 1; // The data "1" is sent to the RC2 bit
          __delay_ms(60);
 
-      //  PORTC = 0b00000000; // Se envía el dato 0X00 a todo el puerto C
-         PORTCbits.RC2 = 0; // Sen envía el dato "0" al bit RC2
+      //  PORTC = 0b00000000; // The 0X00 data is sent to the entire C port
+         PORTCbits.RC2 = 0; // The data "0" is sent to the RC2 bit
          __delay_ms(60);
          
             } 
