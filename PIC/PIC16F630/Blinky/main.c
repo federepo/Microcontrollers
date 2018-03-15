@@ -2,9 +2,9 @@
 Programa Ejemplo: Blinky
 Microcontrolador: PIC16F630
 ****************************************************************/
-#include <xc.h> // Librería XC8
+#include <xc.h> 
  
-#define _XTAL_FREQ 12000000 // Indicamos a qué frecuencia de reloj está funcionando el micro
+#define _XTAL_FREQ 12000000 // Clock frequency
  
 // PIC16F630A Configuration Bit Settings
 
@@ -17,8 +17,6 @@ Microcontrolador: PIC16F630
 #pragma config CPD = OFF        // Data EE Memory Code Protection bit (Data memory code protection off)
 #pragma config CP = OFF         // Flash Program Memory Code Protection bit (Code protection off)
  
-// FUNCION PRINCIPAL
-
 void main ()
 {
     //************************************************
@@ -31,14 +29,14 @@ void main ()
     //******************************
     // Envío de datos a los puertos
     //******************************
-     while (1) // Bucle infinito
+     while (1) 
      {
        //  PORTC = 0b00000000; // Se envía el dato 0X00 a todo el puerto C
          PORTCbits.RC2 = 0; // Sen envía el dato "0" al bit RC2
-         __delay_ms(50);
+         __delay_ms(60);
          
        //  PORTC = 0b11111111; // Se envía el dato 0XFF a todo el puerto C
          PORTCbits.RC2 = 1; // Sen envía el dato "1" al bit RC2
-         __delay_ms(50);
+         __delay_ms(60);
      } 
 }
