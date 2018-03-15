@@ -1,10 +1,11 @@
 /****************************************************************
 Programa Ejemplo: Blinky
 Autor:D'Angiolo, Federico Gabriel
+Microcontrolador: PIC16F630
 ****************************************************************/
 #include <xc.h> // Librería XC8
  
-#define _XTAL_FREQ 12000000 // Indicamos a que frecuencia de reloj esta funcionando el micro
+#define _XTAL_FREQ 12000000 // Indicamos a qué frecuencia de reloj está funcionando el micro
  
 // PIC16F630A Configuration Bit Settings
 
@@ -18,6 +19,7 @@ Autor:D'Angiolo, Federico Gabriel
 #pragma config CP = OFF         // Flash Program Memory Code Protection bit (Code protection off)
  
 // FUNCION PRINCIPAL
+
 void main ()
 {
     //************************************************
