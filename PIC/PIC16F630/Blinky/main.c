@@ -1,6 +1,5 @@
 /****************************************************************
 Programa Ejemplo: Blinky
-Autor:D'Angiolo, Federico Gabriel
 Microcontrolador: PIC16F630
 ****************************************************************/
 #include <xc.h> // Librería XC8
