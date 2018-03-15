@@ -1,6 +1,6 @@
 /****************************************************************
-Programa Ejemplo: Blinky
-Microcontrolador: PIC16F630
+Example: Blinky
+Microcontroller: PIC16F630
 ****************************************************************/
 #include <xc.h> 
  
@@ -8,7 +8,7 @@ Microcontrolador: PIC16F630
  
 // PIC16F630A Configuration Bit Settings
 
-#pragma config FOSC = HS  // Oscillator Selection bits (INTOSC oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
+#pragma config FOSC = HS        // Oscillator Selection bits (INTOSC oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled)
 #pragma config PWRTE = ON      // Power-up Timer Enable bit (PWRT disabled)
 #pragma config MCLRE = ON      // RA5/MCLR/VPP Pin Function Select bit (RA5/MCLR/VPP pin function is digital input, MCLR internally tied to VDD)
@@ -19,16 +19,17 @@ Microcontrolador: PIC16F630
  
 void main ()
 {
-    //***********************
+    //*********************
     //Port configuration
-    //***********************
+    //*********************
     
-    TRISCbits.TRISC2 = 0; // RC2 bit as output
-    // TRISC = 0b00000000; // It is configured to all the bits of port C, as outputs
+    TRISCbits.TRISC2 = 0;   // RC2 bit as output
+    // TRISC = 0b00000000;  // It is configured to all the bits of port C, as outputs
      
     //************************
     // Sending data to ports
     //************************
+ 
      while (1) 
      {
        //  PORTC = 0b11111111; // The 0XFF data is sent to the entire C port
