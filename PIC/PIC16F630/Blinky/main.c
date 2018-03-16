@@ -4,8 +4,6 @@ Microcontroller: PIC16F630
 ****************************************************************/
 #include <xc.h> 
  
-#define _XTAL_FREQ 12000000 // Clock frequency
- 
 // PIC16F630A Configuration Bit Settings
 
 #pragma config FOSC = HS        // Oscillator Selection bits (INTOSC oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
@@ -17,6 +15,8 @@ Microcontroller: PIC16F630
 #pragma config CPD = OFF        // Data EE Memory Code Protection bit (Data memory code protection off)
 #pragma config CP = OFF         // Flash Program Memory Code Protection bit (Code protection off)
  
+#define _XTAL_FREQ 12000000 // Clock frequency
+
 void main (){
  
     //*********************
