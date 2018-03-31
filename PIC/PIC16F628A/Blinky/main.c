@@ -8,6 +8,7 @@ Microcontroller: PIC16F628A
 
 // 'C' source line config statements
 
+#include <xc.h>
 // CONFIG
 #pragma config FOSC = INTOSCCLK // Oscillator Selection bits (INTOSC oscillator: CLKOUT function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled)
@@ -18,30 +19,29 @@ Microcontroller: PIC16F628A
 #pragma config CPD = OFF        // Data EE Memory Code Protection bit (Data memory code protection off)
 #pragma config CP = OFF         // Flash Program Memory Code Protection bit (Code protection off)
 
-#define _XTAL_FREQ 4000000 // Indicamos a que frecuencia de reloj esta funcionando el micro
-
-#include <xc.h>
+#define _XTAL_FREQ 4000000 // Clock frequency
 
 int main(){
     
-     //************************************************
-    //Configuración de puertos como entrada o salida
-    //************************************************
+     //*********************
+    //Port configuration
+    //*********************
     
-    TRISBbits.TRISB3 = 0; // Se configura el bit RC 2 como salida
-    // TRISC = 0b00000000; // Se configura a todos los bits del puerto C, como salidas
+    TRISBbits.TRISB3 = 0; // RB3 bit as output
+    // TRISB = 0b00000000; // It is configured to all the bits of port B, as outputs
      
-    //******************************
-    // Envío de datos a los puertos
-    //******************************
+    //************************
+    // Sending data to ports
+    //************************
+    
      while (1) // Bucle infinito
      {
-       //  PORTB = 0b00000000; // Se envía el dato 0X00 a todo el puerto B
-         PORTBbits.RB3 = 0; // Sen envía el dato "0" al bit RB3
+       //  PORTB = 0b00000000; // The 0XFF data is sent to the entire B port
+         PORTBbits.RB3 = 0;    // The data "1" is sent to the RB3 bit
          __delay_ms(50);
          
-       //  PORTB = 0b11111111; // Se envía el dato 0XFF a todo el puerto B
-         PORTBbits.RB3 = 1; // Sen envía el dato "1" al bit RB3
+       //  PORTB = 0b11111111; // The 0X00 data is sent to the entire B port
+         PORTBbits.RB3 = 1;    // The data "0" is sent to the RB3 bit
          __delay_ms(50);
     
     }
