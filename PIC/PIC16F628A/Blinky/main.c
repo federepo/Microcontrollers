@@ -1,4 +1,9 @@
 
+/****************************************************************
+Example: Blinky
+Microcontroller: PIC16F628A
+****************************************************************/
+
 // PIC16F628A Configuration Bit Settings
 
 // 'C' source line config statements
@@ -14,13 +19,6 @@
 #pragma config CP = OFF         // Flash Program Memory Code Protection bit (Code protection off)
 
 #define _XTAL_FREQ 4000000 // Indicamos a que frecuencia de reloj esta funcionando el micro
-
-// #pragma config statements should precede project file includes.
-// Use project enums instead of #define for ON and OFF.
-
-//***************************
-//Ejemplo para el PIC16F628A
-//***************************
 
 #include <xc.h>
 
