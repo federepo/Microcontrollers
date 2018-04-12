@@ -34,13 +34,13 @@ int main(){
     // Sending data to ports
     //************************
     
-     while (1) // Bucle infinito
+     while (1) // Loop
      {
-       //  PORTB = 0b00000000; // The 0XFF data is sent to the entire B port
+       //  PORTB = 0b00000000; // The 0X00 data is sent to the entire B port
          PORTBbits.RB3 = 0;    // The data "1" is sent to the RB3 bit
          __delay_ms(50);
          
-       //  PORTB = 0b11111111; // The 0X00 data is sent to the entire B port
+       //  PORTB = 0b11111111; // The 0XFF data is sent to the entire B port
          PORTBbits.RB3 = 1;    // The data "0" is sent to the RB3 bit
          __delay_ms(50);
     
