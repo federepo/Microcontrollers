@@ -51,8 +51,8 @@ void Init_TMR0(void){
     
    
    TMR0=0;                   // The value is loaded from where the timer will count
-   INTCON=0b11100000;       // 
-   OPTION_REG = 0b00000000;
+   INTCON=0b11100000;        // GIE = 1; PEIE = 1; T0IE = 1; Another bits clear
+   OPTION_REG = 0b00000000;  // T0CS = 0, PSA = 0; PS = 000
   
     
 }
@@ -61,12 +61,12 @@ void Init_TMR0(void){
  * Interruptions
  ****************/
 
-void interrupt RTR(void){
+void interrupt Timer0_ISR(void){
     
-     if(TMR0IF==1)              // TMR0IF is the interrupt flag. This is set to 0 if there was overflow.
+     if(T0IF==1)              // T0IF is the interrupt flag. This is set to 0 if there was overflow.
     {
-        TMR0IF=0;               // Clear interrupt flag
-        TMR0=0;                 // The value is loaded from where the timer will count
+        T0IF=0;               // Clear interrupt flag
+        TMR0=0;               // The value is loaded from where the timer will count
     
         PORTBbits.RB4 =!PORTBbits.RB4; //Change the state of RB3 
         
