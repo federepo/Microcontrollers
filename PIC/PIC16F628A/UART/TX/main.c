@@ -1,4 +1,3 @@
-
 // PIC16F628A Configuration Bit Settings
 
 // 'C' source line config statements
@@ -18,6 +17,8 @@
 
 #include <xc.h>
 
+#define _XTAL_FREQ 4000000 // Clock frequency
+
 /***********
  Functions
  ***********/
@@ -29,39 +30,37 @@ void main(){
     
     Gpio_init();
     Uart_init();
-    
-    while(1);  // Loop
+ 
+    while(1);
 }
 
 void Gpio_init(void){
     
-        TRISBbits.TRISB1 = 1; // RB4 bit as input. RX
-        TRISBbits.TRISB2 = 0; // RB4 bit as input. TX
-                   
-}
+        TRISBbits.TRISB2 = 0; // RB2 bit as output. TX
+        
+ }
 
 void Uart_init(void){
      
-//    PIR1  = 0b00000000;  // This register contains interrupt flag bits. RCIF and TXIF
     RCSTA = 0b10010000;  // RECEIVE STATUS AND CONTROL REGISTER. SPEN = 1; RX9 = 0, CREN = 1;  
- //   TXREG = 0b01100101;  // USART Transmit Data Register
     PIE1  = 0b00010000;  // This register contains interrupt enable bits. TXIE = 1.  Enables the USART transmit interrupt
     TXSTA = 0b00100110;  // TRANSMIT STATUS AND CONTROL REGISTER   
     SPBRG = 0b00011001;  // USART Baud Rate Generator (25). 9600 baudios con oscilador de 4MHz
+  
     
     Interrupt_init();
 }
 
 void Interrupt_init(void){
     
-    INTCONbits.GIE   =  1; 
-    INTCONbits.PEIE  =  1; 
+    INTCON = 0b11000000;    
     
 }
 
+/**/
 void interrupt int_usart(){
     
-    if(PIR1bits.TXIF==1)
-        TXREG = 0b01100101;  // USART Transmit Data Register
-        
- } 
+ //   if(PIR1bits.TXIF==1)          // It is not necessary
+       TXREG = 0x46;          // USART Transmit Data Register
+       __delay_ms(400);  
+ }
