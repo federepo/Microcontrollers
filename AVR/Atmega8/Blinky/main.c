@@ -6,12 +6,12 @@
 
 int main(void) {
 
-	 DDRB = (1<<PB0); //Pin B5 Salida
+	 DDRB = (1<<PB0); //Pin B0 as OUT
 
 	  while(1){
-	      PORTB |= (1<<PB0); //Ponemos el pin en alto
+	      PORTB |= (1<<PB0); // PBO High
         _delay_ms(1000);
-	      PORTB &= ~(1<<PB0); //Ponemos el pin en bajo
+	      PORTB &= ~(1<<PB0); // PB0 Low
         _delay_ms(1000);
 	   }
 
