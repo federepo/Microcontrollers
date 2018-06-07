@@ -1,2 +1,2 @@
-# Microcontroladores PIC
-En esta sección se encontrarán códigos hechos para microcontroladores PIC
+# Microcontrollers
+In ths section will find codes for Microcontrollers PIC and ATMEGA
