@@ -6,7 +6,7 @@ git add *
 
 git commit -m "Uploaded"
 
-git push originmaster
+git push 
 
 
 
