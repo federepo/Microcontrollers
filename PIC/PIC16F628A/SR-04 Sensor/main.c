@@ -1,20 +1,13 @@
-/***********************************
- * SR-04
+/*******************************************************************************************************
+ * This code use Pic microcontroller for sensor SR-04. If the distance exceeds 2 cm an LED lights up 
  * PIC: PIC16F628A
  * 
- * Note: The Timer1 module is a 16-bit timer/counter consisting of two 8-bit registers (TMR1H and TMR1L) which are
-         readable and writable
- 
- 
- */
-
-
+ * Note: The Timer1 module is a 16-bit timer/counter consisting of two 8-bit registers (TMR1H and TMR1L) 
+         which are readable and writable
+ *******************************************************************************************************/
 
 // PIC16F628A Configuration Bit Settings
 
-// 'C' source line config statements
-
-// CONFIG
 #pragma config FOSC = INTOSCIO  // Oscillator Selection bits (INTOSC oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled)
 #pragma config PWRTE = OFF      // Power-up Timer Enable bit (PWRT disabled)
@@ -25,16 +18,12 @@
 #pragma config CP = OFF         // Flash Program Memory Code Protection bit (Code protection off)
 
 // #pragma config statements should precede project file includes.
-// Use project enums instead of #define for ON and OFF.
-
 
 #include <xc.h>
 
 #define TRIGGER      PORTAbits.RA0
 #define ECHO         PORTAbits.RA1
 #define LED_RED      PORTAbits.RA2
-
-
 
 #define _XTAL_FREQ 4000000
 
@@ -84,8 +73,4 @@ void init_timer_1(void){
     TMR1L = 0;
     
     T1CON = 0x10;               //Initialize Timer Module
-
-    
-    
-    
 }
