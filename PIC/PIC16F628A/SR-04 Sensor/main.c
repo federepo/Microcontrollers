@@ -20,6 +20,8 @@
 // #pragma config statements should precede project file includes.
 
 #include <xc.h>
+#include <math.h>
+
 
 #define TRIGGER      PORTAbits.RA0
 #define ECHO         PORTAbits.RA1
@@ -36,7 +38,11 @@ void init_timer_1(void);
 
 void main(void) {   
     
-    int count = 0;
+    unsigned int count = 0;
+    float distance = 0;
+  
+    LED_RED = 0;
+    
     
     init_port();
     init_timer_1();    
@@ -51,12 +57,16 @@ void main(void) {
     TMR1ON = 0;                        // Stop the count
 
     count = TMR1L | (TMR1H<<8);        //Reads Timer Value
-    count = count/58.82;               //Converts Time to Distance
+          
+    distance = count / 58.82;               //Converts Time to Distance
     
-    if(count>=2 && count<=400){        //Check whether the result is valid or not
+    
+    if(distance>=2 && distance<=400){        //Check whether the result is valid or not
         LED_RED = 1;
     }        
         
+    else LED_RED = 0;
+    
     return;
 }
 
