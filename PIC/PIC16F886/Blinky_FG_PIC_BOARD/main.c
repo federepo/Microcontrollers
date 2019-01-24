@@ -1,8 +1,8 @@
 
-/****************************************************************
-Example: Blinky
+/*********************************************
+Example: Blinky with 3 LEDs on FG PIC BOARD
 Microcontroller: PIC16F886
-****************************************************************/
+**********************************************/
 
 // CONFIG1
 #pragma config FOSC = INTRC_NOCLKOUT// Oscillator Selection bits (INTOSCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
@@ -27,29 +27,43 @@ Microcontroller: PIC16F886
 
 #define _XTAL_FREQ 4000000 // Clock frequency
 
-#define     Config_LED_1    TRISAbits.TRISA2
-#define     LED_1           PORTAbits.RA2
+// Blue LED
+#define     Config_Blue_LED      TRISAbits.TRISA2  
+#define     Blue_LED             PORTAbits.RA2
 
+// Yellow LED
+#define     Config_Yellow_LED    TRISAbits.TRISA0
+#define     Yellow_LED           PORTAbits.RA0
+
+// Red LED
+#define     Config_Red_LED       TRISBbits.TRISB5
+#define     Red_LED              PORTBbits.RB5
+
+// Delay
+#define     Delay_LED           300        // miliseconds
 
 /*************
   Prototipes
  *************/
 
-void init_port(void); // Bit 0, Port A, as output
+void init_port(void); // Config Port as Output
 
 void main(void) {
     
     
     init_port();
     
-    LED_1 = 0;
-    
     while(1){
         
-         LED_1 = !LED_1;        // The data "0" is sent to the RA0 bit
-         __delay_ms(500);
+         Blue_LED   = !Blue_LED;        // Blinky Blue LED
+         __delay_ms(Delay_LED);
          
-             
+         Yellow_LED = !Yellow_LED;     // Blinky Blue LED
+         __delay_ms(Delay_LED);
+         
+         Red_LED    = !Red_LED;       //  Blinky Red LED
+         __delay_ms(Delay_LED);
+                      
     }
     
     return;
@@ -57,8 +71,10 @@ void main(void) {
 
 void init_port(void){
     
-    Config_LED_1 = 0;   // Config Bit 0, Porta A, as output
+    Config_Blue_LED   = 0;   // Config Bit 2, Porta A, as output
+    Config_Yellow_LED = 0;   // Config Bit 0, Porta A, as output
+    Config_Red_LED    = 0;   // Config Bit 5, Porta B, as output
             
-    ANSEL=0;            //Analog Channel is disabled    
-    
+    ANSEL  = 0;              //Analog Channel is disabled    
+    ANSELH = 0;              // Analog Select High Register is disabled
 }
