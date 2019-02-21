@@ -55,13 +55,13 @@ void main(void) {
     
     while(1){
         
-         Blue_LED   = !Blue_LED;        // Blinky Blue LED
+         Blue_LED   = ~Blue_LED;        // Blinky Blue LED
          __delay_ms(Delay_LED);
          
-         Yellow_LED = !Yellow_LED;     // Blinky Blue LED
+         Yellow_LED = ~Yellow_LED;     // Blinky Blue LED
          __delay_ms(Delay_LED);
          
-         Red_LED    = !Red_LED;       //  Blinky Red LED
+         Red_LED    = ~Red_LED;       //  Blinky Red LED
          __delay_ms(Delay_LED);
                       
     }

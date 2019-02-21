@@ -46,7 +46,7 @@ void main(void) {
     
     while(1){
         
-         LED_1 = !LED_1;        // The data "0" is sent to the RA0 bit
+         LED_1 = ~LED_1;        // The data "0" is sent to the RA0 bit
          __delay_ms(500);
          
              
