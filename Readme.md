@@ -18,12 +18,14 @@ PIC 16F886
 The folder AVR contains code for Microcontrollers:
 
 ATMEGA 8
+ATMEGA 328
 
 ### Version and date<a name = Version></a>
 
 Driver files  | Version | Date
 --------------|---------|------------
 main.c        |  1.0    | 18 Jan 2019
+Blinky.c      |  1.0    | 23 Feb 2019
 
 
 ### Driver files information<a name = PICfile></a>
